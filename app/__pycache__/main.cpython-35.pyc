@@ -1,0 +1,9 @@
+iCode="40"/>
+<KeyMapping ItemName="1" Point_X="0.831055" Point_Y="0.086806" Description="字母键" AsciiCode="49"/>
+<KeyMapping ItemName="2" Point_X="0.943359" Point_Y="0.088542" Description="字母键" AsciiCode="50"/>
+<KeyMapping ItemName="4" Point_X="0.953125" Point_Y="0.911458" Description="字母键" AsciiCode="52"/>
+<KeyMapping ItemName="G" Point_X="0.711914" Point_Y="0.715278" Description="字母键" AsciiCode="71"/>
+<KeyMapping ItemName="M" Point_X="0.106445" Point_Y="0.194444" Description="字母键" AsciiCode="77"/>
+<KeyMapping ItemName="Q" Point_X="0.812500" Point_Y="0.586806" Description="字母键" AsciiCode="81"/>
+<KeyMapping ItemName="`" Point_X="0.041992" Point_Y="0.071181" Description="字母键" AsciiCode="192"/>
+<KeyMappingEx ItemName="WASD" Point_X="0.140625" Point_Y="0.760417" Description="移动" Type="CrossKey" UP_AsciiCode="87" DOWN_AsciiCode="83" LEFT_AsciiCode=
