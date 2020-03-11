@@ -14,7 +14,7 @@ class Log():
             if bcrypt.hashpw(password.encode('utf-8'), logInUser['password'].encode('utf-8')) == logInUser['password'].encode('utf-8'):
                 session['username'] = username
                 session['logggedIn'] = True
-                return logInUser
+                return "You were logged in"#logInUser
         return "wrong username or password"
 
     def logOut(self):

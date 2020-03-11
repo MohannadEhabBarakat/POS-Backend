@@ -37,7 +37,7 @@ def logIn():
     requestJson=request.get_json()
     username = requestJson["username"]
     password = requestJson["password"]
-    logMannager.login(username,password)
+    return logMannager.login(username,password)
 
 @app.route('/logOut', methods=['POST'])
 def logOut():
