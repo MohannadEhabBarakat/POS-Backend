@@ -1,11 +1,11 @@
 from flask import Flask, request
 from flask_pymongo import PyMongo
 from .User import user, log
-from .List.List import lists
-from .Item.Item import item
-from .Cash.Cash import cash
-from .Offer.Offer import offer
-from .Returns.Returns import returns
+# from .List.List import lists
+# from .Item.Item import item
+# from .Cash.Cash import cash
+# from .Offer.Offer import offer
+# from .Returns.Returns import returns
 
 import os
 
@@ -20,12 +20,12 @@ app.config["SECRET_KEY"] = "OCML3BRawWEUeaxcuKHLpw"
 
 mongo = PyMongo(app)
 tempUser=user(mongo)
-tempCat=lists(mongo)
-tempItem=item(mongo)
-tempOffer=offer(mongo)
-tempCash= cash(mongo)
-tempReturn=returns(mongo)
-logMannager = log(app)
+# tempCat=lists(mongo)
+# tempItem=item(mongo)
+# tempOffer=offer(mongo)
+# tempCash= cash(mongo)
+# tempReturn=returns(mongo)
+# logMannager = log(app)
 
 
 @app.route('/')
