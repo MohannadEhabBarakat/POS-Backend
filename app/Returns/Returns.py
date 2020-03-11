@@ -16,5 +16,5 @@ class return():
     
 
     def addReturn(self,returns):
-        self.mongo.db.returns.insert(self.temp))
+        self.mongo.db.returns.insert(returns))
     

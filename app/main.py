@@ -1,37 +1,57 @@
 from flask import Flask, request
 from flask_pymongo import PyMongo
-from .User import user
-# from .List.List import lists
-# from .Item.Item import item
+from .User import user, log
+from .List.List import lists
+from .Item.Item import item
+from .Cash.Cash import cash
+from .Offer.Offer import offer
+from .Returns.Returns import returns
+
 import os
 
 MONGO_URI = os.environ.get("MONGO_URI")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 app = Flask(__name__)
 
 print("DB URI: ",MONGO_URI)
 app.config["MONGO_URI"]=MONGO_URI
+app.config["SECRET_KEY"] = "OCML3BRawWEUeaxcuKHLpw"
 
-mongo = PyMongo()
-mongo.init_app(app)
+mongo = PyMongo(app)
 tempUser=user(mongo)
-# tempCat=lists(mongo)
-# tempItem=item(mongo)
-# tempOffer=offer(mongo)
-# tempCash= cash(mongo)
-# tempReturn=returns(mongo)
-
+tempCat=lists(mongo)
+tempItem=item(mongo)
+tempOffer=offer(mongo)
+tempCash= cash(mongo)
+tempReturn=returns(mongo)
+logMannager = log(app)
 
 
 @app.route('/')
 def home():
     return "hi 3la elnas el hay"
 
-@app.route('/addUser', methods=['POST'])
-def addUser():
-    use=request.get_json()
-    print(use)
-    return tempUser.addUser(use)
+@app.route('/logIn', methods=['POST'])
+def logIn():
+    requestJson=request.get_json()
+    username = requestJson["username"]
+    password = requestJson["password"]
+    logMannager.login(username,password)
+
+@app.route('/logOut', methods=['POST'])
+def logOut():
+    return logMannager.logOut()
+
+@app.route('/isLogedIn', methods=['POST'])
+def isLogedIn():
+    return logMannager.isLogedIn
+
+# @app.route('/addUser', methods=['POST'])
+# def addUser():
+#     use=request.get_json()
+#     print(use)
+#     return tempUser.addUser(use)
 
 
 # @app.route('/modUser')

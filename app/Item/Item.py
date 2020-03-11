@@ -30,24 +30,24 @@ class item():
         
 
     def addItem(self, item):
-        if(self.mongo.db.items.find({"name":self.temp["name"]}).count()):
+        if(self.mongo.db.items.find({"name": item["name"]}).count()):
             return "can't add"
-        return str(self.mongo.db.items.insert(self.temp))
+        return str(self.mongo.db.items.insert(item))
         
 
     def modItem(self, item):
         # find item.name then update all of it's values 
-        if(self.mongo.db.items.find({"name":self.temp["name"]}).count()):
-            self.mongo.db.items.delete_one({"name":self.temp["name"]})
-            return str(self.mongo.db.items.insert(self.temp))
+        if(self.mongo.db.items.find({"name":item["name"]}).count()):
+            self.mongo.db.items.delete_one({"name":item["name"]})
+            return str(self.mongo.db.items.insert(item))
         return "item not found if you updated the name please delete the item then add again"
 
 
 
     def delItem(self, item):
         # find item.name then drop it
-        if(self.mongo.db.items.find({"name":self.temp["name"]}).count()):
-            return str(self.mongo.db.items.delete_one({"name":self.temp["name"]}))
+        if(self.mongo.db.items.find({"name":item["name"]}).count()):
+            return str(self.mongo.db.items.delete_one({"name":item["name"]}))
         return "item not found if you updated the name please delete the item then add again"
 
     def getItem(self):
@@ -57,10 +57,10 @@ class item():
         return i
 
     def decreaseAmount(self, item):
-        if(self.mongo.db.items.find({"name":self.temp["name"]}).count()):
-            self.mongo.db.items.update_one({"name":self.temp["name"]} , {"$dec": {"ammount":1}})
+        if(self.mongo.db.items.find({"name":item["name"]}).count()):
+            self.mongo.db.items.update_one({"name":item["name"]} , {"$dec": {"ammount":1}})
 
     def increaseAmount(self, item):
-        if(self.mongo.db.items.find({"name":self.temp["name"]}).count()):
-            self.mongo.db.items.update_one({"name":self.temp["name"]} , {"$inc": {"ammount":1}})
+        if(self.mongo.db.items.find({"name":item["name"]}).count()):
+            self.mongo.db.items.update_one({"name":item["name"]} , {"$inc": {"ammount":1}})
 

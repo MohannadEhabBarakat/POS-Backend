@@ -13,6 +13,6 @@ class cash():
         
 
     def CASH (self, order):
-        return str(self.mongo.db.orders.insert(self.temp))
+        return str(self.mongo.db.orders.insert(order))
 
     

@@ -1,12 +1,12 @@
 class lists():
-    cat={
-        "name" : "cat",
-        "value" : ["حلو","حادق"]
-    }
-    priv={
-        "name" : "cat",
-        "value" : ["cash",""]
-    }
+    # cat={
+    #     "name" : "cat",
+    #     "value" : ["حلو","حادق"]
+    # }
+    # priv={
+    #     "name" : "cat",
+    #     "value" : ["cash",""]
+    # }
 
 
     def __init__(self, mongo):

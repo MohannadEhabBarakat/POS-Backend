@@ -14,14 +14,14 @@ class offers():
         
 
     def addOffer(self, offers):
-        if(self.mongo.db.offers.find({"name":self.temp["name"]}).count()):
+        if(self.mongo.db.offers.find({"name":offers["name"]}).count()):
             return "can't add"
-        return str(self.mongo.db.offers.insert(self.temp))
+        return str(self.mongo.db.offers.insert(offers))
 
     def delOffer(self, offers):
         # find offers.name then drop it
-        if(self.mongo.db.offers.find({"name":self.temp["name"]}).count()):
-            return str(self.mongo.db.offers.delete_one({"name":self.temp["name"]}))
+        if(self.mongo.db.offers.find({"name":offers["name"]}).count()):
+            return str(self.mongo.db.offers.delete_one({"name":offers["name"]}))
         return "offers not found if you updated the name please delete the offers then add again"
 
     def getOffer(self):
